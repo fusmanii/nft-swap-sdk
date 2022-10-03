@@ -27,7 +27,7 @@
     "wrappedNativeToken": "0xc778417e063141139fce010982780140aa0cd5ab"
   },
   "5": {
-    "exchange": "0xAA1235c714b874b13a91c8EEE58930F4F38bCb17",
+    "exchange": "0x7AcB2BFcb14bd67a5733Bdfd212D90F58745dfC3",
     "erc20Proxy": "0x070efeb7e5ffa3d1a59d03a219539551ae60ba43",
     "erc721Proxy": "0x7f10d80f2659aaae790ab03da12be11c4e6008c3",
     "erc1155Proxy": "0x6De3ec2c3f682Bf651Cf84be358F1EE6Bc6e208A",
