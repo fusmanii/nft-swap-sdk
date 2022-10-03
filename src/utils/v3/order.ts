@@ -18,8 +18,8 @@ export const getEipDomain = (
   chainId: number,
   exchangeContractAddress: string
 ): EipDomain => ({
-  name: '0x Protocol',
-  version: '3.0.0',
+  name: 'Parallel TCG',
+  version: '1.0.0',
   chainId: chainId.toString(10),
   verifyingContract: exchangeContractAddress,
 });
