@@ -31,7 +31,7 @@
     "erc20Proxy": "0x070efeb7e5ffa3d1a59d03a219539551ae60ba43",
     "erc721Proxy": "0x7f10d80f2659aaae790ab03da12be11c4e6008c3",
     "erc1155Proxy": "0x6De3ec2c3f682Bf651Cf84be358F1EE6Bc6e208A",
-    "multiAssetProxy": "0xb344afed348de15eb4a9e180205a2b0739628339",
+    "multiAssetProxy": "0x9Fa9589D104828B24148F120B14BA14B0b568C18",
     "forwarder": "0x18571835c95a6d79b2f5c45b676ccd16f5fa34a1",
     "wrappedNativeToken": "0xb4fbf271143f4fbf7b91a5ded31805e42b2208d6"
   },
