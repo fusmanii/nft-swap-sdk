@@ -76,6 +76,7 @@ export interface NftSwapConfig {
 
 /**
  * NftSwap Convenience class to swap between ERC20, ERC721, and ERC1155. Primary entrypoint for swapping.
+ * HELLO
  */
 class NftSwapV3 implements INftSwapV3 {
   public provider: BaseProvider;

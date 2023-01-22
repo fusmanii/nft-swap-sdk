@@ -352,7 +352,7 @@ export const buildOrder = (
     makerAssetData = encodeAssetData(makerAsset, false);
   } else {
     const makerAssetAmounts = makerAssets.map((ma) => getAmountFromAsset(ma));
-    const makerAssetDatas = makerAssets.map((ma) => encodeAssetData(ma, true));
+    const makerAssetDatas = makerAssets.map((ma) => encodeAssetData(ma, false));
     const makerMultiAsset = encodeMultiAssetAssetData(
       makerAssetAmounts,
       makerAssetDatas

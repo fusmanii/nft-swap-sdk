@@ -13,6 +13,7 @@ import {
   SerializedSingleAssetDataTypes,
   SupportedTokenTypes,
   SwappableAsset,
+  UserFacingERC1155AssetDataSerialized,
   UserFacingSerializedSingleAssetDataTypes,
 } from '../../sdk/v3/types';
 import { InterallySupportedAssetFormat } from '../../sdk/v3/pure';
@@ -207,7 +208,8 @@ export const getAmountFromAsset = (
       // Trader.sdk only supports trading 1 ERC1155 per _asset_ at a time,
       // so we can access the 0th index for our token
       // (You can still trade multiple ERC1155s per _order_).
-      return assetData.tokens[0]?.tokenValue ?? '1';
+      // return assetData.tokens[0]?.tokenValue ?? '1';
+      return '1';
     default:
       throw new Error(`Unsupported type ${(assetData as any)?.type}`);
   }
@@ -245,5 +247,27 @@ export const convertAssetToInternalFormat = (
 export const convertAssetsToInternalFormat = (
   assets: Array<SwappableAsset>
 ): Array<InterallySupportedAssetFormat> => {
-  return assets.map(convertAssetToInternalFormat);
+  const assetsInternal = assets.map(convertAssetToInternalFormat);
+
+  // collect all ERC1155 assets from same contract together
+  const erc1155Assets = (
+    assetsInternal.filter(
+      (asset) => asset.type === 'ERC1155'
+    ) as UserFacingERC1155AssetDataSerialized[]
+  ).reduce((acc: UserFacingERC1155AssetDataSerialized[], cur) => {
+    const foundAsset = acc.find((a) => a.tokenAddress === cur.tokenAddress);
+    if (foundAsset) {
+      foundAsset.tokens = foundAsset.tokens.concat(cur.tokens);
+    } else {
+      acc.push(cur);
+    }
+
+    return acc;
+  }, []);
+
+  const nonErc1155Assets = assetsInternal.filter(
+    (asset) => asset.type === 'ERC20' || asset.type === 'ERC721'
+  );
+
+  return nonErc1155Assets.concat(erc1155Assets);
 };
